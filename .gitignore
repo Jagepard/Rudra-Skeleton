@@ -1,0 +1,8 @@
+# Created by .ignore support plugin (hsz.mobi)
+/.idea/
+/nbproject/private/
+/nbproject/
+/vendor/
+/composer.lock
+/log/
+/app/web/Resources/twig/compilation_cache/

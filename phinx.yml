@@ -1,0 +1,17 @@
+paths:
+    migrations: db/migrations
+    seeds: db/seeds
+
+environments:
+    default_migration_table: phinxlog
+    default_database: rudra-skeleton-company
+    rudra:
+        adapter: mysql
+        host: localhost
+        name: rudra-skeleton-company
+        user: root
+        pass: '123'
+        port: 3306
+        charset: utf8
+
+version_order: creation
