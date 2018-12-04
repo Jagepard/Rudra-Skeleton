@@ -45,12 +45,14 @@ namespaces:
 
 # БД
 database:
-    driver: PDO
-    DSN: mysql
-    host: localhost
-    user: root
-    password: '123'
-    name: rudra
+    active: pdo
+    pdo:
+        driver: PDO
+        DSN: mysql
+        host: localhost
+        user: root
+        password: '123'
+        name: rudra
 
 http.errors:
     404:
