@@ -6,3 +6,4 @@
 /composer.lock
 /log/
 /app/web/Resources/twig/compilation_cache/
+/app/auth/
