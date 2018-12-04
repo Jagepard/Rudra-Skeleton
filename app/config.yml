@@ -32,11 +32,16 @@ template:
         engine: twig
         view.path: app/web/Resources/twig/view
         cache.path: app/web/Resources/twig/compilation_cache
+    auth:
+        engine: twig
+        view.path: app/auth/Resources/twig/view
+        cache.path: app/auth/Resources/twig/compilation_cache
 
 # Базовое пространство имен
 namespaces:
     default: App\Http\
     web: App\Web\
+    auth: App\Auth\
 
 # БД
 database:
