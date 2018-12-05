@@ -8,15 +8,16 @@ use Rudra\ExternalTraits\SetContainerTrait;
 class Route
 {
 
-    use SetContainerTrait;
     use RouteTrait;
+    use SetContainerTrait;
 
     /**
      * @throws \Rudra\Exceptions\RouterException
      */
     public function run()
     {
-        $this->route(Web\Route::class, 'web');
+        $this->route('auth', 'common');
+        $this->collect($this->withOut(['auth']), $this->container()->config('database', 'active'));
         $this->handleException();
     }
 }

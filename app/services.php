@@ -16,8 +16,8 @@ return [
         'validation' => ['Rudra\Validation'],
         'auth'       => ['Rudra\Auth', ['env' => $app->config('env'), 'role' => $app->config('role')]],
         'redirect'   => ['Rudra\Redirect', ['url' => APP_URL, 'env' => $app->config('env')]],
-        'connector'  => ['Rudra\Connector', ['config' => $app->config('database')]],
-        'router'     => ['Rudra\Router', ['namespace' => $app->config('namespaces', 'default')]],
+        'connector'  => ['Rudra\Connector', ['config' => $app->config('database', $app->config('database', 'active'))]],
+        'router'     => ['Rudra\Router', ['namespace' => $app->config('namespaces', 'web')]],
         'route'      => ['App\Route']
     ]
 ];

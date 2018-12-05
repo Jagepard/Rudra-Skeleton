@@ -1,35 +1,16 @@
 <?php
 
 use Rudra\URI;
-use Rudra\Container as Rudra;
+use Rudra\Container;
 use Symfony\Component\Yaml\Yaml;
 
-/**
- * Environment
- */
-define('DEV', false);
+session_name("RudraFramework");
 
-/**
- * Base path
- */
-define('BP', dirname(__DIR__) . '/');
+require '../vendor/autoload.php';
 
-/**
- * Class Autoloader
- */
-require BP . 'vendor/autoload.php';
-
-/**
- * Set APP_URL & PROTOCOL
- */
-URI::setup(Rudra::app(), DEV, 'some-host.loc');
-Rudra::$app->setConfig(Yaml::parse(file_get_contents(BP . 'app/config.yml')));
-
-/**
- * Set Services
- */
-$services = require_once BP . 'app/services.php';
-Rudra::$app->setServices($services);
-
-Rudra::$app->get('debugbar')['time']->startMeasure('Index', 'Index');
-Rudra::$app->get('route')->run(Rudra::$app->get('router'));
+$rudra = Container::app();
+$rudra->setConfig(Yaml::parse(file_get_contents( '../app/config.yml')));
+$rudra->new( URI::class, ['container' => $rudra, 'env' => $rudra->config('env'), 'url' => $rudra->config('url')]);  // Set APP_URL & PROTOCOL
+$rudra->setServices(require_once '../app/services.php'); // Set Services
+$rudra->get('debugbar')['time']->startMeasure('Index', 'Index');
+$rudra->get('route')->run();
