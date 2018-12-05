@@ -19,7 +19,8 @@ salt: '123'
 uri: request
 
 ### Base path ###
-bp: ### path to home folder/ ###
+### path to yours home folder/ ###
+bp: /home/d/projects/skeletons/Rudra-Skeleton-Company
 
 ### Environment ###
 env: development
