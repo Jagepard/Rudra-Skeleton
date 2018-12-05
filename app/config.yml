@@ -19,7 +19,7 @@ salt: '123'
 uri: request
 
 ### Base path ###
-bp: ### path to home folder ###
+bp: ### path to home folder/ ###
 
 ### Environment ###
 env: development
@@ -39,7 +39,6 @@ template:
 
 # Базовое пространство имен
 namespaces:
-    default: App\Http\
     web: App\Web\
     auth: App\Auth\
 
@@ -52,7 +51,7 @@ database:
         host: localhost
         user: root
         password: '123'
-        name: rudra
+        name: rudra-skeleton-company
 
 http.errors:
     404:
