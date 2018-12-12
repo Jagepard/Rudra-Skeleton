@@ -8,6 +8,10 @@ session_name("RudraFramework");
 
 require '../vendor/autoload.php';
 
+$whoops = new \Whoops\Run;
+$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+$whoops->register();
+
 $rudra = Container::app();
 $rudra->setConfig(Yaml::parse(file_get_contents( '../app/config.yml')));
 $rudra->new( URI::class, ['container' => $rudra, 'env' => $rudra->config('env'), 'url' => $rudra->config('url')]);  // Set APP_URL & PROTOCOL

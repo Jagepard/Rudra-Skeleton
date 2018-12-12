@@ -47,7 +47,8 @@
         "rudra/redirect"   : "dev-master",
         "rudra/uri"        : "dev-master",
         "rudra/model"      : "dev-master",
-        "rudra/annotation" : "dev-master"
+        "rudra/annotation" : "dev-master",
+        "filp/whoops": "^2.2@dev"
     },
     "require-dev"      : {
         "rudra-bundle-jagepard/auth": "dev-master"
