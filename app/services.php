@@ -18,6 +18,7 @@ return [
         'redirect'   => ['Rudra\Redirect', ['url' => APP_URL, 'env' => $app->config('env')]],
         'connector'  => ['Rudra\Connector', ['config' => $app->config('database', $app->config('database', 'active'))]],
         'router'     => ['Rudra\Router', ['namespace' => $app->config('namespaces', 'web')]],
-        'route'      => ['App\Route']
+        'route'      => ['App\Route'],
+        'mailer'     => ['\Swift_Mailer', ['transport' => $app->get('transport')]]
     ]
 ];

@@ -5,7 +5,7 @@ role:
     moderator: 3
 
 ### Соль - для кеширования пароля ###
-salt: '123'
+salt: 'salt'
 
 #re.сaptcha:
 #    site.key: # Ключ reCaptcha для фронтенда
@@ -19,8 +19,7 @@ salt: '123'
 uri: request
 
 ### Base path ###
-### path to yours home folder/ ###
-bp: /home/d/projects/skeletons/Rudra-Skeleton-Company
+bp: path to yours home folder/
 
 ### Environment ###
 env: development
@@ -51,8 +50,13 @@ database:
         DSN: mysql
         host: localhost
         user: root
-        password: '123'
+        password: 'password'
         name: rudra-skeleton-company
+
+swiftmailer:
+    username: 'username'
+    password: 'password'
+
 
 http.errors:
     404:

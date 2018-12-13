@@ -7,3 +7,4 @@
 /log/
 /app/web/Resources/twig/compilation_cache/
 /app/auth/
+/app/config.yml
