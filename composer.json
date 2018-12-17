@@ -48,7 +48,6 @@
         "rudra/uri"        : "dev-master",
         "rudra/model"      : "dev-master",
         "rudra/annotation" : "dev-master",
-        "filp/whoops": "^2.2@dev",
         "swiftmailer/swiftmailer": "^6.0"
     },
     "require-dev"      : {
