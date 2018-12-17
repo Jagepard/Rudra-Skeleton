@@ -16,8 +16,13 @@ class Route
      */
     public function run()
     {
-        $this->route('auth', 'common');
-        $this->collect($this->withOut(['auth']), $this->container()->config('database', 'active'));
+        $this->route('auth', 'pdo');
+        $this->route('web', 'pdo');
+
+//        $this->collect(
+//            $this->container()->config('namespaces'),
+//            $this->container()->config('database', 'active')
+//        );
         $this->handleException();
     }
 }
