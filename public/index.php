@@ -10,11 +10,6 @@ require '../vendor/autoload.php';
 
 $rudra = Container::app();
 $rudra->setConfig(Yaml::parse(file_get_contents('../app/config.yml')));
-
-$whoops = new \Whoops\Run;
-$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
-$whoops->register();
-
 $rudra->new(URI::class, [ // Set APP_URL & PROTOCOL
     'container' => $rudra,
     'env'       => $rudra->config('env'),
