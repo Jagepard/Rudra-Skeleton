@@ -16,8 +16,8 @@ class Route
      */
     public function run()
     {
-        $this->route('auth', 'pdo');
-        $this->route('web', 'pdo');
+        $this->route('auth', $this->container()->config('database', 'active'));
+        $this->route('web', $this->container()->config('database', 'active'));
 
 //        $this->collect(
 //            $this->container()->config('namespaces'),
