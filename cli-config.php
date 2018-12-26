@@ -8,11 +8,10 @@ use Doctrine\ORM\Tools\Console\ConsoleRunner;
 
 require_once 'vendor/autoload.php';
 $rudra = Container::app();
-$rudra->setConfig(Yaml::parse(file_get_contents( 'app/config.yml')));
+$rudra->setConfig(Yaml::parse(file_get_contents('app/config.yml')));
 
 $namespace = 'app/auth/Models/Doctrine';
-
-$conn = $rudra->config('database', 'doctrine');
+$conn      = $rudra->config('database', 'doctrine');
 
 $config        = Setup::createAnnotationMetadataConfiguration([$rudra->config('bp') . $namespace], true, null, null, false);
 $entityManager = EntityManager::create([
@@ -23,4 +22,3 @@ $entityManager = EntityManager::create([
 ], $config);
 
 return ConsoleRunner::createHelperSet($entityManager);
-
