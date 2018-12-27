@@ -12,6 +12,6 @@ class MainController extends WebController
      */
     public function actionIndex()
     {
-        $this->twig('index', (array)$this->data());
+        $this->twig('index', $this->data());
     }
 }

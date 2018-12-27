@@ -6,9 +6,15 @@ use Rudra\Router;
 
 class Route
 {
-    public function run(Router $router, $namespace)
+
+    /**
+     * @param Router $router
+     * @param        $namespace
+     * @param        $params
+     */
+    public function run(Router $router, $namespace, $params)
     {
         $router->setNamespace($namespace);
-        $router->annotation('MainController'); // mainpage
+        $router->annotationCollector($params);
     }
 }
