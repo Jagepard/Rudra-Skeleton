@@ -7,15 +7,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ title }}</title>
     <link rel="shortcut icon" href="/favicon.ico" />
-	{% if constant('DEV') %}
-		{{ debugbar.renderHead() | raw }}
-	{% endif %}
+
+    {% if auth() %}
+        {% if 'development' == env %}
+            {{ debugbar.renderHead() | raw }}
+        {% endif %}
+        {{ container.get('debugbar').Twig.info('app/resources/twig/view/layout.html.twig') }}
+    {% endif %}
+
 </head>
 <body>
+
     {% block content %}{% endblock %}
 
-	{% if constant('DEV') %}
-        {{ debugbar.render() | raw }}
+    {% if auth() %}
+        {% if 'development' == env %}
+            {{ debugbar.render() | raw }}
+        {% endif %}
     {% endif %}
 </body>
 </html>
