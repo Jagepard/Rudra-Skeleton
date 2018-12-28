@@ -24,8 +24,8 @@ class WebController extends Controller
         $this->getTwig()->addGlobal('container', $container);
         $this->container()->get('debugbar')['time']->startMeasure('Controller', 'Controller');
 
-        $this->setData('Rudra Framework', 'title');
-        $this->setData(PDO::user(), 'user');
+        $this->setData('title', 'Rudra Framework');
+        $this->setData('user', PDO::user());
     }
 
     public function twig(string $template, array $params = []): void
