@@ -20,7 +20,10 @@ $rudra->set('transport', (new \Swift_SmtpTransport('smtp.yandex.com', 465, 'ssl'
     ->setUsername($rudra->config('swiftmailer','username'))
     ->setPassword($rudra->config('swiftmailer','password')), 'raw');
 
-$rudra->setServices(require_once '../app/services.php'); // Set Services
+$whoops = new \Whoops\Run;
+$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+$whoops->register();
 
+$rudra->setServices(require_once '../app/services.php'); // Set Services
 $rudra->get('debugbar')['time']->startMeasure('Index', 'Index');
 $rudra->get('route')->run();

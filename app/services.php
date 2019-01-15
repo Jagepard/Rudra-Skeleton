@@ -3,7 +3,7 @@
 use Rudra\Container;
 use Rudra\Interfaces\ContainerInterface;
 
-$app = Container::$app;
+$rudra = Container::$app;
 
 return [
     'contracts' => [
@@ -11,14 +11,15 @@ return [
     ],
 
     'services' => [
-        'debugbar'   => ['DebugBar\StandardDebugBar'],
-        'annotation' => ['Rudra\Annotation'],
-        'validation' => ['Rudra\Validation'],
-        'auth'       => ['Rudra\Auth', ['env' => $app->config('env'), 'role' => $app->config('role')]],
-        'redirect'   => ['Rudra\Redirect', ['url' => APP_URL, 'env' => $app->config('env')]],
-        'connector'  => ['Rudra\Connector', ['config' => $app->config('database', $app->config('database', 'active'))]],
-        'router'     => ['Rudra\Router', ['namespace' => $app->config('namespaces', 'web')]],
-        'route'      => ['App\Route'],
-        'mailer'     => ['\Swift_Mailer', ['transport' => $app->get('transport')]]
+        'debugbar'         => ['DebugBar\StandardDebugBar'],
+        'annotation'       => ['Rudra\Annotation'],
+        'validation'       => ['Rudra\Validation'],
+        'auth'             => ['Rudra\Auth', ['env' => $rudra->config('env'), 'role' => $rudra->config('role')]],
+        'redirect'         => ['Rudra\Redirect', ['url' => APP_URL, 'env' => $rudra->config('env')]],
+        'connector'        => ['Rudra\Connector', ['config' => $rudra->config('database', $rudra->config('database', 'active'))]],
+        'router'           => ['Rudra\Router', ['namespace' => $rudra->config('namespaces', 'web')]],
+        'route'            => ['App\Route'],
+        'event.dispatcher' => ['Rudra\EventDispatcher'],
+        'mailer'           => ['\Swift_Mailer', ['transport' => $rudra->get('transport')]]
     ]
 ];
