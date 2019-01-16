@@ -37,7 +37,7 @@
         "robmorgan/phinx"        : "^0.9.1",
         "fzaninotto/faker"       : "^1.7",
         "swiftmailer/swiftmailer": "^6.0",
-        "filp/whoops": "^2.2@dev"
+        "filp/whoops"            : "^2.2@dev"
     },
     "require-dev"      : {
         "rudra/connector"           : "dev-master",
@@ -49,12 +49,11 @@
         "rudra/container"           : "dev-master",
         "rudra/validation"          : "dev-master",
         "rudra/redirect"            : "dev-master",
-        "rudra/uri"                 : "dev-master",
         "rudra/model"               : "dev-master",
         "rudra/annotation"          : "dev-master",
         "rudra/event-dispatcher"    : "dev-master",
         "rudra-bundle-jagepard/auth": "dev-master",
-        "codeception/codeception": "2.5.x-dev"
+        "codeception/codeception"   : "2.5.x-dev"
     },
     "repositories"     : [
         {
