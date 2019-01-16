@@ -16,13 +16,9 @@ class Route
      */
     public function run()
     {
-        $this->route('auth', $this->container()->config('database', 'active'));
-        $this->route('web', $this->container()->config('database', 'active'));
-
-//        $this->collect(
-//            $this->container()->config('namespaces'),
-//            $this->container()->config('database', 'active')
-//        );
+        $this->route('auth', config('database', 'active'));
+        $this->route('web', config('database', 'active'));
+//        $this->collect(config('namespaces'), config('database', 'active'));
         $this->handleException();
     }
 }
