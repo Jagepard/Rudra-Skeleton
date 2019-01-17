@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Web\Supports;
+namespace App\Common;
 
 use Rudra\Exceptions\RouterException;
 
