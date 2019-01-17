@@ -47,6 +47,7 @@ trait TwigFunctions
             $debugbarRenderer = $this->container()->get('debugbar')->getJavascriptRenderer();
             $this->getTwig()->addGlobal('debugbar', $debugbarRenderer);
             $this->getTwig()->addGlobal('env', $this->container()->config('env'));
+            $this->getTwig()->addGlobal('url', config('url'));
         }
     }
 
