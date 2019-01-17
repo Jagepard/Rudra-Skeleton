@@ -13,8 +13,8 @@ use DebugBar\DataCollector\MessagesCollector;
 class WebController extends Controller
 {
 
-    use TwigFunctions;
     use HttpErrors;
+    use TwigFunctions;
 
     public function init(ContainerInterface $container, array $config)
     {
