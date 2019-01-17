@@ -3,8 +3,8 @@
 namespace App\Web;
 
 use Rudra\Controller;
-use App\Web\Supports\HttpErrors;
-use App\Web\Supports\TwigFunctions;
+use App\Common\HttpErrors;
+use App\Common\TwigFunctions;
 use App\Auth\Models\PDO\Users as PDO;
 use Rudra\Interfaces\ContainerInterface;
 use DebugBar\DataCollector\ConfigCollector;
