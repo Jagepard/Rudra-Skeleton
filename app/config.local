@@ -23,7 +23,6 @@ bp: path to yours home folder/
 
 ### Environment ###
 env: development
-url: rudra-skeleton-company.loc
 
 # Шаблонизатор
 # twig или php
