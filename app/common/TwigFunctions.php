@@ -43,11 +43,13 @@ trait TwigFunctions
             }
         }));
 
-        if ('development' == rudra()->config('env')) {
+        if ('development' == config('env')) {
             $debugbarRenderer = rudra()->get('debugbar')->getJavascriptRenderer();
             $this->twig->addGlobal('debugbar', $debugbarRenderer);
-            $this->twig->addGlobal('env', rudra()->config('env'));
-            $this->twig->addGlobal('url', config('url'));
         }
+
+        $this->twig->addGlobal('env', config('env'));
+        $this->twig->addGlobal('url', config('url'));
+        $this->twig->addGlobal('container', rudra());
     }
 }
