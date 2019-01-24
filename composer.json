@@ -1,6 +1,6 @@
 {
-    "name"             : "rudra/framework",
-    "description"      : "Rudra framework",
+    "name"             : "rudra/skeleton",
+    "description"      : "Rudra Skeleton",
     "type"             : "library",
     "keywords"         : [
         "rudra",
