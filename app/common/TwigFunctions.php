@@ -22,7 +22,7 @@ trait TwigFunctions
         }));
 
         $this->twig->addFunction(new Twig_SimpleFunction('auth', function () {
-            return rudra()->get('auth')->access(true);
+            return rudra()->get('auth')->access();
         }));
 
         $this->twig->addFunction(new Twig_SimpleFunction('active', function ($link, $page) {
