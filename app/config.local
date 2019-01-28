@@ -1,8 +1,8 @@
 ### RBAC ###
 role:
-    admin: 1
-    editor: 2
-    moderator: 3
+    admin: ['C', 'U', 'D']
+    editor: ['C', 'U']
+    moderator: ['U']
 
 ### Соль - для кеширования пароля ###
 salt: 'salt'
