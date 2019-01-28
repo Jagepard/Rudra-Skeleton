@@ -13,43 +13,53 @@ trait TwigFunctions
     {
         parent::template($config);
 
-        $this->twig->addFunction(new Twig_SimpleFunction('d', function ($var) {
+        $this->getTwig()->addFunction(new Twig_SimpleFunction('d', function ($var) {
             return d($var);
         }));
 
-        $this->twig->addFunction(new Twig_SimpleFunction('date', function ($var) {
+        $this->getTwig()->addFunction(new Twig_SimpleFunction('date', function ($var) {
             return date($var);
         }));
 
-        $this->twig->addFunction(new Twig_SimpleFunction('auth', function () {
-            return rudra()->get('auth')->access();
+        $this->getTwig()->addFunction(new Twig_SimpleFunction('auth', function () {
+            return $this->container()->get('auth')->access();
         }));
 
-        $this->twig->addFunction(new Twig_SimpleFunction('active', function ($link, $page) {
+        $this->getTwig()->addFunction(new Twig_SimpleFunction('active', function ($link, $page) {
             if ($link == $page) {
                 echo 'class="active"';
             }
         }));
 
-        $this->twig->addFunction(new Twig_SimpleFunction('value', function ($var) {
-            if (rudra()->hasSession('value', $var)) {
-                return rudra()->getSession('value', $var);
+        $this->getTwig()->addFunction(new Twig_SimpleFunction('value', function ($var) {
+            if ($this->container()->hasSession('value', $var)) {
+                return $this->container()->getSession('value', $var);
             }
         }));
 
-        $this->twig->addFunction(new Twig_SimpleFunction('alert', function ($value, $style, $label = null) {
-            if (rudra()->hasSession('alert', $value)) {
-                return '<div class="alert alert-' . $style . '" style="padding: 15px">' . rudra()->getSession('alert', $value) . $label . '</div>';
+        $this->getTwig()->addFunction(new Twig_SimpleFunction('alert', function ($value, $style, $label = null) {
+            if ($this->container()->hasSession('alert', $value)) {
+                return '<div class="alert alert-' . $style . '" style="padding: 15px">' . $this->container()->getSession('alert', $value) . $label . '</div>';
             }
         }));
 
         if ('development' == config('env')) {
-            $debugbarRenderer = rudra()->get('debugbar')->getJavascriptRenderer();
-            $this->twig->addGlobal('debugbar', $debugbarRenderer);
+            $debugbarRenderer = $this->container()->get('debugbar')->getJavascriptRenderer();
+            $this->getTwig()->addGlobal('debugbar', $debugbarRenderer);
         }
 
-        $this->twig->addGlobal('env', config('env'));
-        $this->twig->addGlobal('url', config('url'));
-        $this->twig->addGlobal('container', rudra());
+        $this->getTwig()->addGlobal('env', config('env'));
+        $this->getTwig()->addGlobal('url', config('url'));
+        $this->getTwig()->addGlobal('container', $this->container());
     }
+
+    /**
+     * @return Twig_Environment
+     */
+    public abstract function getTwig(): Twig_Environment;
+
+    /**
+     * @return mixed
+     */
+    public abstract function container(): ContainerInterface;
 }
