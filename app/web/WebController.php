@@ -23,12 +23,19 @@ class WebController extends Controller
         $this->setData('user', PDO::user());
     }
 
+    /**
+     * @param string $template
+     * @param array  $params
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
     public function twig(string $template, array $params = []): void
     {
-        rudra()->get('debugbar')['time']->startMeasure('Controller', 'Controller');
-        rudra()->get('debugbar')->addCollector(new ConfigCollector($params));
-        rudra()->get('debugbar')->addCollector(new MessagesCollector('Twig'));
-        rudra()->get('debugbar')['Twig']->info($template);
+        $this->container()->get('debugbar')['time']->startMeasure('Controller', 'Controller');
+        $this->container()->get('debugbar')->addCollector(new ConfigCollector($params));
+        $this->container()->get('debugbar')->addCollector(new MessagesCollector('Twig'));
+        $this->container()->get('debugbar')['Twig']->info($template);
 
         parent::twig($template, $params);
     }
