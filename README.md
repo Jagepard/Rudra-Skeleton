@@ -12,6 +12,10 @@
     cd newapp
     composer dumpautoload -o
 
+    cd public
+    php -S localhost:8000
+    to run built-in web server
+    
 В newapp/app/config.yml настраиваем
 'driver' - Способ работы с базой данных:
  PDO / Eloquent / mysqli или doctrine,
