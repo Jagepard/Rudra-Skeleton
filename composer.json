@@ -10,10 +10,10 @@
         "mvc-architecture",
         "mvc"
     ],
-    "license"          : "GPL-3.0-or-later",
+    "license"          : "MIT",
     "authors"          : [
         {
-            "name"    : "Danila Korotkov (Jagepard)",
+            "name"    : "Jagepard",
             "email"   : "jagepard@yandex.ru",
             "homepage": "https://jagepard.ru",
             "role"    : "Developer"
