@@ -11,7 +11,6 @@ use DebugBar\DataCollector\MessagesCollector;
 
 class WebController extends Controller
 {
-
     use HttpErrors;
     use TwigFunctions;
 
