@@ -6,7 +6,6 @@ use App\Web\WebController;
 
 class MainController extends WebController
 {
-
     /**
      * @Routing(url = '')
      */

@@ -6,7 +6,6 @@ use Rudra\ExternalTraits\RouteTrait;
 
 class Route
 {
-
     use RouteTrait;
 
     /**
